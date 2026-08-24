@@ -1,0 +1,56 @@
+---------------------------------------------------------------------------------------------------
+Version: 2.1.0
+Date: 24. 08. 2026
+  Changes:
+    - Redrew the item and technology icons at the sizes the game actually wants: the item icon
+      is now 64x64 instead of 32x32, and the technology icon 256x256 instead of 128x128, both
+      with the mipmaps every base-game icon ships. Neither is upscaled in game any more.
+    - The new icons are Factorio's own cliff-explosives art with the red and blue channels
+      swapped, so the dynamite is yellow rather than blue. See CREDITS.md for provenance;
+      thanks to the mod portal contributor who suggested the approach.
+    - Retitled to "Explosive Excavation Continued". This is now a maintained continuation of
+      GotLag's mod rather than a stopgap compatibility patch, so the title no longer says
+      "unofficial" or names a specific Factorio version. The internal mod name is unchanged,
+      so this is a normal update and existing saves are unaffected.
+    - Added LICENSE (MIT, continuing GotLag's) and CREDITS.md, which records that the icons
+      are derived from Wube's cliff-explosives art and are not covered by the MIT licence.
+---------------------------------------------------------------------------------------------------
+Version: 2.0.0
+Date: 09. 08. 2026
+  Bugfixes:
+    - Fixed that the mod failed to load on Factorio 2.1.7 and later: RecipePrototype `category` was removed and merged into `categories`.
+    - Fixed that the item and technology icons pointed at `__Explosive Excavation__`, which is not this mod's name, so sprite loading failed.
+    - Fixed that blasting charges could be placed on space platform foundation; the tiles are now restored and the charges refunded.
+  Changes:
+    - Declared dependencies: base >= 2.1.14, optional Space Age, and incompatible with the original Explosive Excavation mod.
+    - Removed an unused icon and shrank the thumbnail from 1024x1024 to 256x256, cutting the download from 1.4 MB to about 180 KB.
+    - Planets are now identified through the surface's planet prototype instead of the surface name, so renamed and scripted surfaces behave correctly.
+    - The item now sorts after the Space Age terrain items instead of tying with artificial yumako soil.
+---------------------------------------------------------------------------------------------------
+Version: 1.3.0
+Date: 04. 01. 2025
+  Changes:
+    - Added support for Space Age
+    - Blasting charges now produce appropriate fluid tiles on all planets
+    - Blasting charges no longer damage nearby entities, explosion is only cosmetic
+---------------------------------------------------------------------------------------------------
+Version: 1.2.0
+Date: 30. 12. 2024
+  Changes:
+    - Updated to Factorio 2.0
+---------------------------------------------------------------------------------------------------
+Version: 1.1.8
+Date: 26. 11. 2020
+  Changes:
+    - Updated to Factorio 1.1
+---------------------------------------------------------------------------------------------------
+Version: 1.1.7
+Date: 24. 01. 2020
+  Bugfixes:
+    - Fixed crash when placing tiles in editor mode (thanks JD-Plays)
+---------------------------------------------------------------------------------------------------
+Version: 1.1.6
+Date: 23. 01. 2020
+  Changes:
+    - Updated to 0.18
+    - Crafting recipe now uses cliff explosives

@@ -1,0 +1,13 @@
+{
+	"name": "explosive_excavation_unofficial_2_1",
+	"version": "2.1.0",
+	"title": "Explosive Excavation Continued",
+	"author": "dreamdenizen",
+	"description": "Use explosives to blast holes in the ground and let them fill with whatever liquid the planet has.",
+	"factorio_version": "2.1",
+	"dependencies": [
+		"base >= 2.1.14",
+		"? space-age",
+		"! Explosive Excavation"
+	]
+}
