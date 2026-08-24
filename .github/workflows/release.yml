@@ -1,0 +1,91 @@
+name: validate and release
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - run: pip install --quiet Pillow
+
+      - name: Read mod identity from info.json
+        id: mod
+        run: |
+          python - <<'EOF' >> "$GITHUB_OUTPUT"
+          import json, os
+          d = json.load(open("info.json"))
+          print(f"name={d['name']}")
+          print(f"version={d['version']}")
+          print(f"zip={d['name']}_{d['version']}.zip")
+          print(f"tag=v{d['version']}")
+          EOF
+
+      - name: Build
+        run: tools/build.sh
+
+      - name: Validate
+        run: tools/validate.py
+
+      # Artifacts get wrapped in a second zip by GitHub, which is useless for a portal
+      # upload. They are here for pull requests only, where no release is cut.
+      - name: Upload build artifact
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.mod.outputs.name }}-${{ steps.mod.outputs.version }}
+          path: dist/${{ steps.mod.outputs.zip }}
+
+      - name: Does this version already have a release?
+        if: github.ref == 'refs/heads/main'
+        id: exists
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view "${{ steps.mod.outputs.tag }}" >/dev/null 2>&1; then
+            echo "found=true" >> "$GITHUB_OUTPUT"
+            echo "Release ${{ steps.mod.outputs.tag }} already exists, nothing to cut."
+          else
+            echo "found=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Release notes from changelog.txt
+        if: github.ref == 'refs/heads/main' && steps.exists.outputs.found == 'false'
+        run: |
+          python - <<'EOF' > notes.md
+          import json, re
+          version = json.load(open("info.json"))["version"]
+          body = open("changelog.txt").read()
+          blocks = re.split(r"^-{99}$", body, flags=re.M)
+          for b in blocks:
+              if re.search(rf"^Version:\s*{re.escape(version)}\s*$", b, re.M):
+                  lines = [l for l in b.strip().split("\n") if not l.startswith(("Version:", "Date:"))]
+                  print("\n".join(lines).strip())
+                  break
+          print()
+          print("Upload the attached zip to the mod portal as-is.")
+          EOF
+          cat notes.md
+
+      - name: Cut the release
+        if: github.ref == 'refs/heads/main' && steps.exists.outputs.found == 'false'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${{ steps.mod.outputs.tag }}" \
+            "dist/${{ steps.mod.outputs.zip }}" \
+            --title "${{ steps.mod.outputs.version }}" \
+            --notes-file notes.md
+          echo "Released ${{ steps.mod.outputs.tag }}"
