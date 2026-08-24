@@ -14,6 +14,10 @@ Date: 24. 08. 2026
       so this is a normal update and existing saves are unaffected.
     - Added LICENSE (MIT, continuing GotLag's) and CREDITS.md, which records that the icons
       are derived from Wube's cliff-explosives art and are not covered by the MIT licence.
+    - Replaced the thumbnail. The old one had "Unofficial for 2.1" painted across it, which
+      no longer describes the mod. The new one is a four-way mosaic of the fills the charge
+      actually produces - lava on Vulcanus, brash ice on Aquilo, heavy oil on Fulgora and a
+      lake on Gleba - with the charge itself in the middle.
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.0
 Date: 09. 08. 2026
