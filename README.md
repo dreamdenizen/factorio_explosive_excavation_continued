@@ -40,7 +40,8 @@ plain Lua with no image manipulation, so a mod has to carry its own sprites.
 They are Factorio's own `cliff-explosives` art with the red and blue channels
 swapped, which turns the blue dynamite yellow. Grey pixels have `R == B`, so the
 swap leaves the wrapping bands, the cast shadow and the whole alpha channel
-bit-identical to Wube's originals.
+bit-identical to Wube's originals. That approach is
+[Ingo_Igel](https://mods.factorio.com/user/Ingo_Igel)'s.
 
 `tools/recolour-from-base.py` is how those PNGs were produced, kept here so the
 result is reproducible and so they can be regenerated if Wube ever redraws the base
@@ -61,6 +62,20 @@ base-game item and technology icon is. Factorio infers the mipmap count from
 
 Because they derive from Wube's art, these two files are **not** covered by this
 repo's MIT licence. See CREDITS.md.
+
+## Thanks
+
+**[GotLag](https://mods.factorio.com/mod/Explosive%20Excavation)** wrote Explosive
+Excavation and kept it running from 2020 through Factorio 1.1. This fork exists
+because that mod was worth keeping.
+
+**[Ingo_Igel](https://mods.factorio.com/user/Ingo_Igel)**, author of the
+[Factorio HD Age](https://mods.factorio.com/mod/factorio_hd_age_base_game_base)
+series of texture mods, turned up on the mod portal with a recolour of the icons and
+the finding that a straight red/blue channel swap gets there without the green cast
+a hue rotation leaves behind. They also sent the art already laid out as correct
+mipmap strips, which is what showed that the base-game icons were the right thing to
+start from. The icons in this mod are their idea, and better for it.
 
 ## Licence
 
