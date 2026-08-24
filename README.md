@@ -4,6 +4,11 @@ Blast holes in the ground with explosives and let them fill with whatever liquid
 the planet has. A maintained continuation of [GotLag's Explosive
 Excavation](https://mods.factorio.com/mod/Explosive%20Excavation) for Factorio 2.1.
 
+This mod replaces `explosive_excavation_unofficial_2_1`, which is deprecated. If you
+have that one installed, disable it before enabling this: they define the same
+prototypes and cannot both be loaded. Your existing blasting charges survive the
+swap untouched.
+
 Research **Blasting charges** to unlock the recipe. Each charge is crafted from two
 cliff explosives and a barrel, and places one tile of liquid: water on Nauvis, lava
 on Vulcanus, heavy oil on Fulgora, a Gleba lake, or brash ice on Aquilo. Space

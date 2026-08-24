@@ -2,8 +2,10 @@
 Version: 2.1.0
 Date: 24. 08. 2026
   Changes:
-    - Retitled to "Explosive Excavation Continued". The internal mod name is unchanged, so
-      this is a normal update and existing saves are unaffected.
+    - Moved to a new mod portal page and renamed to "Explosive Excavation Continued". The old
+      page, explosive_excavation_unofficial_2_1, is deprecated. Existing saves are unaffected:
+      the item and technology prototypes are unchanged, so removing the old mod and enabling
+      this one keeps your charges. The two cannot be enabled at the same time.
     - The item icon is now 64x64 and the technology icon 256x256, both with mipmaps, matching
       base-game sizes. Neither is upscaled in game any more.
     - The icons are Factorio's own cliff-explosives art with red and blue swapped. Thanks to

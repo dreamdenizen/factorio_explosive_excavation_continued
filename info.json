@@ -1,5 +1,5 @@
 {
-	"name": "explosive_excavation_unofficial_2_1",
+	"name": "explosive_excavation_continued",
 	"version": "2.1.0",
 	"title": "Explosive Excavation Continued",
 	"author": "dreamdenizen",
@@ -8,6 +8,7 @@
 	"dependencies": [
 		"base >= 2.1.14",
 		"? space-age",
-		"! Explosive Excavation"
+		"! Explosive Excavation",
+		"! explosive_excavation_unofficial_2_1"
 	]
 }
