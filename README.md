@@ -71,8 +71,9 @@ repo's MIT licence. See CREDITS.md.
 ## Thanks
 
 **[GotLag](https://mods.factorio.com/mod/Explosive%20Excavation)** wrote Explosive
-Excavation and kept it running from 2020 through Factorio 1.1. This fork exists
-because that mod was worth keeping.
+Excavation in July 2016 and kept it working for eight and a half years and fourteen
+releases, from Factorio 0.13 all the way through 2.0. This fork exists because that
+mod was worth keeping.
 
 **[Ingo_Igel](https://mods.factorio.com/user/Ingo_Igel)**, author of the
 [Factorio HD Age](https://mods.factorio.com/mod/factorio_hd_age_base_game_base)
