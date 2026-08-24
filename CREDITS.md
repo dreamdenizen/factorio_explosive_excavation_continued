@@ -18,6 +18,8 @@ dynamite yellow while leaving the grey wrapping bands, the cast shadow, and the
 entire alpha channel bit-identical to Wube's originals. `tools/recolour-from-base.py`
 regenerates both files from a Factorio installation.
 
-The idea, and the observation that a straight channel swap avoids the green cast a
-hue rotation introduces, came from a contributor on the mod portal. They also
-confirmed the correct mipmap strip layout. Thanks for that.
+Thanks to [Ingo_Igel](https://mods.factorio.com/user/Ingo_Igel), author of Factorio
+HD Age, who proposed the recolour on the mod portal and worked out that a straight
+red/blue channel swap avoids the green cast a hue rotation leaves behind. They also
+supplied the art already laid out as correct mipmap strips, which is what made it
+obvious the base-game icons were the right starting point.
