@@ -25,6 +25,23 @@ tools/build.sh
 That writes `dist/<name>_<version>.zip`, which you can drop straight into your
 Factorio `mods/` folder.
 
+## Releasing
+
+Push to `main`. GitHub Actions builds the zip, runs `tools/validate.py`, and if
+`info.json`'s version has no matching release yet, cuts one tagged `v<version>` with
+the zip attached and the changelog section as the notes. Download that attachment and
+upload it to the mod portal unchanged.
+
+To ship a new version: bump `version` in `info.json`, add a matching `changelog.txt`
+entry, push. Validation fails the build if the two disagree, so a version can not go
+out undocumented. Pushes that do not change the version re-validate but cut nothing.
+
+Run the same checks locally before pushing:
+
+```
+tools/build.sh && tools/validate.py
+```
+
 ## Layout
 
 | path | what it is |
@@ -34,7 +51,8 @@ Factorio `mods/` folder.
 | `prototypes/` | the item, its recipe, and the technology |
 | `control.lua` | swaps the placed water for the planet's own liquid, plays the explosion, blocks space platforms |
 | `graphics/` | the item and technology icons, committed and shipped as PNGs |
-| `tools/` | maintainer scripts; not included in the built mod |
+| `tools/` | build, validation and asset scripts; not included in the built mod |
+| `.github/` | CI: validate every push, cut a release when the version changes |
 
 ## Notes on the icons
 
