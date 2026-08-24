@@ -3,6 +3,7 @@
 	"version": "2.1.0",
 	"title": "Explosive Excavation Continued",
 	"author": "dreamdenizen",
+	"homepage": "https://github.com/dreamdenizen/factorio_explosive_excavation_continued",
 	"description": "Use explosives to blast holes in the ground and let them fill with whatever liquid the planet has.",
 	"factorio_version": "2.1",
 	"dependencies": [

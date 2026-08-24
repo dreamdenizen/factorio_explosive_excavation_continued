@@ -12,6 +12,9 @@ Date: 24. 08. 2026
       Ingo_Igel for the idea. See CREDITS.md.
     - New thumbnail showing the four fills the charge produces, with the charge in the middle.
     - Added LICENSE and CREDITS.md.
+  Bugfixes:
+    - Charges refunded from a space platform are no longer lost if they do not fit back in the
+      inventory. Whatever does not fit is now spilled on the ground instead of vanishing.
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.0
 Date: 09. 08. 2026

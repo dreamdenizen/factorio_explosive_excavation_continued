@@ -48,9 +48,25 @@ local function undo(surface, tiles, event)
   surface.set_tiles(restored)
 
   -- One charge is consumed per tile (condition_size = 1), so refund one per tile.
+  local refund = {name = event.item.name, count = #tiles, quality = event.quality}
+
+  -- `insert` returns how many it actually took, which can be fewer than asked for.
+  -- Placing the tiles just freed this space so a short insert is unlikely, but the
+  -- difference would otherwise be items the player silently loses.
+  local inserted = 0
   local inventory = event.inventory
   if inventory and inventory.valid then
-    inventory.insert({name = event.item.name, count = #tiles, quality = event.quality})
+    inserted = inventory.insert(refund)
+  end
+
+  local leftover = #tiles - inserted
+  if leftover > 0 then
+    local position = tiles[1].position
+    surface.spill_item_stack({
+      position = {position.x + 0.5, position.y + 0.5},
+      stack = {name = refund.name, count = leftover, quality = refund.quality},
+      enable_looted = true,
+    })
   end
 end
 

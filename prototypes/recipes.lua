@@ -4,8 +4,7 @@ data:extend({
     name = "blasting-charge",
     energy_required = 8,
     enabled = false,
-    -- `category` was removed from RecipePrototype in 2.1.7 and merged into `categories`.
-    categories = {"crafting"},
+    -- `categories` is left unset: it defaults to {"crafting"}, which is what this wants.
     ingredients =
     {
       {type = "item", name = "cliff-explosives", amount = 2},
