@@ -2,22 +2,14 @@
 Version: 2.1.0
 Date: 24. 08. 2026
   Changes:
-    - Redrew the item and technology icons at the sizes the game actually wants: the item icon
-      is now 64x64 instead of 32x32, and the technology icon 256x256 instead of 128x128, both
-      with the mipmaps every base-game icon ships. Neither is upscaled in game any more.
-    - The new icons are Factorio's own cliff-explosives art with the red and blue channels
-      swapped, so the dynamite is yellow rather than blue. Thanks to Ingo_Igel, who proposed
-      the recolour and worked out the channel swap. See CREDITS.md for provenance.
-    - Retitled to "Explosive Excavation Continued". This is now a maintained continuation of
-      GotLag's mod rather than a stopgap compatibility patch, so the title no longer says
-      "unofficial" or names a specific Factorio version. The internal mod name is unchanged,
-      so this is a normal update and existing saves are unaffected.
-    - Added LICENSE (MIT, continuing GotLag's) and CREDITS.md, which records that the icons
-      are derived from Wube's cliff-explosives art and are not covered by the MIT licence.
-    - Replaced the thumbnail. The old one had "Unofficial for 2.1" painted across it, which
-      no longer describes the mod. The new one is a four-way mosaic of the fills the charge
-      actually produces - lava on Vulcanus, brash ice on Aquilo, heavy oil on Fulgora and a
-      lake on Gleba - with the charge itself in the middle.
+    - Retitled to "Explosive Excavation Continued". The internal mod name is unchanged, so
+      this is a normal update and existing saves are unaffected.
+    - The item icon is now 64x64 and the technology icon 256x256, both with mipmaps, matching
+      base-game sizes. Neither is upscaled in game any more.
+    - The icons are Factorio's own cliff-explosives art with red and blue swapped. Thanks to
+      Ingo_Igel for the idea. See CREDITS.md.
+    - New thumbnail showing the four fills the charge produces, with the charge in the middle.
+    - Added LICENSE and CREDITS.md.
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.0
 Date: 09. 08. 2026
