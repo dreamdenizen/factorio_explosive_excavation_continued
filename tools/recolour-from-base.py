@@ -13,7 +13,9 @@ worth spelling out why it works so cleanly:
 Anything more than the swap makes it worse: adding a green adjustment is what
 put a green cast on the contributor's first attempt at these.
 
-Usage: recolour.py <src.png> <dst.png>
+Requires Pillow (pip install Pillow).
+
+Usage: recolour-from-base.py <src.png> <dst.png>
 """
 from PIL import Image
 import numpy as np
